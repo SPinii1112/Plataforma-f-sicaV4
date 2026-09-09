@@ -1,0 +1,124 @@
+<div class="space-y-4">
+    <!-- Banner principal: correcto / incorrecto -->
+    <div class="p-4 rounded-xl text-xs
+        {% if result.is_correct %}
+            bg-emerald-50 border border-emerald-300 text-emerald-950
+        {% elif result.reveal_mode == 'hint' %}
+            bg-amber-50 border border-amber-300 text-amber-950
+        {% elif result.reveal_mode == 'steps' %}
+            bg-orange-50 border border-orange-300 text-orange-950
+        {% else %}
+            bg-red-50 border border-red-300 text-red-950
+        {% endif %}">
+
+        <div class="flex items-center space-x-2 font-black text-sm mb-2">
+            {% if result.is_correct %}
+                <span class="text-emerald-600 text-lg">&#10003;</span>
+                <span>Respuesta Correcta</span>
+            {% elif result.reveal_mode == 'hint' %}
+                <span class="text-amber-500 text-lg">&#9888;</span>
+                <span>Respuesta Incorrecta (Intento {{ result.attempt_number }})</span>
+            {% elif result.reveal_mode == 'steps' %}
+                <span class="text-orange-500 text-lg">&#128270;</span>
+                <span>Respuesta Incorrecta (Intento {{ result.attempt_number }})</span>
+            {% else %}
+                <span class="text-red-500 text-lg">&#10007;</span>
+                <span>Respuesta Incorrecta (Solución Completa - Intento {{ result.attempt_number }})</span>
+            {% endif %}
+        </div>
+
+        <p class="leading-relaxed font-medium">{{ result.feedback }}</p>
+
+        <!-- MODO HINT: Pista socrática (1er error) -->
+        {% if result.hint %}
+        <div class="mt-3 pt-3 border-t border-amber-200">
+            <span class="font-extrabold text-amber-900 block mb-1">&#128161; Pista para pensar:</span>
+            <p class="text-amber-800 italic">{{ result.hint }}</p>
+        </div>
+        {% endif %}
+
+        <!-- MODO STEPS: Pasos de resolución (2do error), sin revelar opción -->
+        {% if result.show_steps and result.solution_steps %}
+        <div class="mt-3 pt-3 border-t border-orange-200">
+            <span class="font-extrabold text-orange-900 block mb-1">&#128203; Pasos para resolverlo:</span>
+            <pre class="font-mono text-[11px] whitespace-pre-wrap text-orange-900 bg-orange-100/60 p-2.5 rounded-lg">{{ result.solution_steps }}</pre>
+        </div>
+        {% endif %}
+
+        <!-- MODO FULL: Revelar respuesta correcta (3er+ error) -->
+        {% if result.show_answer and result.correct_answer %}
+        <div class="mt-3 pt-3 border-t border-red-200 bg-red-100/40 p-3 rounded-lg">
+            <span class="font-extrabold text-red-900 block mb-1">&#128273; Respuesta correcta:</span>
+            <p class="text-red-900 font-bold text-sm">Opción {{ result.correct_answer }}</p>
+        </div>
+        {% endif %}
+
+        <!-- CORRECTO: Mostrar explicacion teorica -->
+        {% if result.is_correct and result.explanation %}
+        <div class="mt-3 pt-3 border-t border-emerald-200">
+            <span class="font-bold text-emerald-900 block mb-1">&#128218; Explicacion teorica:</span>
+            <p class="text-emerald-800">{{ result.explanation }}</p>
+        </div>
+        {% elif result.show_answer and result.explanation %}
+        <div class="mt-3 pt-3 border-t border-red-200">
+            <span class="font-bold text-red-900 block mb-1">&#128218; Explicacion teorica:</span>
+            <p class="text-red-800">{{ result.explanation }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Progreso ponderado del tema -->
+        <div class="mt-3 pt-2 border-t border-slate-200 text-[11px] font-bold text-slate-500 flex items-center gap-2">
+            <span>Puntaje del tema:</span>
+            <span class="
+                {% if result.topic_percent >= 70 %} text-emerald-600
+                {% elif result.topic_percent >= 40 %} text-amber-600
+                {% else %} text-red-500
+                {% endif %}
+                font-black">{{ result.topic_percent }}%</span>
+            <div class="flex-1 bg-slate-200 rounded-full h-1.5 ml-1">
+                <div class="h-1.5 rounded-full transition-all
+                    {% if result.topic_percent >= 70 %} bg-emerald-500
+                    {% elif result.topic_percent >= 40 %} bg-amber-400
+                    {% else %} bg-red-400
+                    {% endif %}"
+                    style="width: {{ result.topic_percent }}%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reintentar si aún no se reveló la respuesta -->
+    {% if not result.is_correct and not result.show_answer %}
+    <div class="pt-1">
+        <p class="text-xs text-slate-500 mb-2 font-medium">
+            {% if result.reveal_mode == 'hint' %}
+                Leé la pista y volvé a intentarlo:
+            {% else %}
+                Seguí los pasos y volvé a intentarlo:
+            {% endif %}
+        </p>
+        <form hx-post="/ejercicio/{{ exercise.id }}/submit"
+              hx-target="#feedback-box-{{ exercise.id }}"
+              hx-swap="innerHTML"
+              class="space-y-3">
+            {% if exercise.exercise_type == 'multiple_choice' and exercise.options %}
+            <div class="space-y-2">
+                {% for opt in exercise.options %}
+                <label class="flex items-center p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition text-xs font-medium text-slate-700">
+                    <input type="radio" name="user_answer" value="{{ opt.id }}" required class="mr-3 text-physics-600">
+                    <span><strong>{{ opt.id }})</strong> {{ opt.text }}</span>
+                </label>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div>
+                <input type="text" name="user_answer" required placeholder="Nuevo valor calculado"
+                    class="w-full sm:w-64 px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs focus:ring-2 focus:ring-physics-500 outline-none">
+            </div>
+            {% endif %}
+            <button type="submit" class="px-5 py-2 bg-physics-600 hover:bg-physics-700 text-white font-bold text-xs rounded-xl shadow transition">
+                Reintentar Ejercicio
+            </button>
+        </form>
+    </div>
+    {% endif %}
+</div>

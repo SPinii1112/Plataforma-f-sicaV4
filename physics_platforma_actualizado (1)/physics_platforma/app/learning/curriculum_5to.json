@@ -1,0 +1,472 @@
+[
+  {
+    "module_name": "Cinemática",
+    "slug": "5to-cinematica",
+    "desc": "MRU, MRUV, análisis gráfico y magnitudes vectoriales.",
+    "icon": "zap",
+    "topics": [
+      {
+        "name": "Cinemática: Vectores, MRU, MRUV y Gráficos",
+        "slug": "5to-cinematica-completa",
+        "summary": "Magnitudes escalares y vectoriales, ecuaciones horarias de MRU y MRUV, ecuación de Torricelli y análisis de pendientes/áreas en gráficos x-t, v-t y a-t.",
+        "theory": "<h3>1. Magnitudes Físicas</h3>\n<p>• <strong>Escalares:</strong> Definidas por un valor numérico y unidad (masa, tiempo, temperatura, energía).<br>\n• <strong>Vectoriales:</strong> Poseen módulo, dirección y sentido (posición, desplazamiento, velocidad, aceleración, fuerza).</p>\n\n<h3>2. Movimiento Rectilíneo Uniforme (MRU)</h3>\n<p>La velocidad permanece rigurosamente constante en módulo, dirección y sentido (a = 0).<br>\nEcuación horaria: <code>x(t) = x0 + v · (t - t0)</code></p>\n\n<h3>3. Movimiento Rectilíneo Uniformemente Variado (MRUV)</h3>\n<p>La aceleración es constante y distinta de cero colineal al movimiento.<br>\n• Velocidad: <code>v(t) = v0 + a · t</code><br>\n• Posición: <code>x(t) = x0 + v0 · t + ½ a · t²</code><br>\n• Ecuación de Torricelli: <code>vf² = v0² + 2 · a · Δx</code></p>\n\n<h3>4. Análisis Gráfico Riguroso</h3>\n<p>• <strong>Gráfico x vs t:</strong> La pendiente de la recta tangente representa la velocidad instantánea.<br>\n• <strong>Gráfico v vs t:</strong> La pendiente representa la aceleración. El área bajo la curva representa el desplazamiento neto.<br>\n• <strong>Gráfico a vs t:</strong> Es una recta horizontal en MRUV. El área bajo la recta representa la variación de velocidad (Δv = a · Δt).</p>",
+        "concepts": [
+          "Vectores y Escalares",
+          "MRU Ecuaciones",
+          "MRUV y Torricelli",
+          "Análisis Gráfico"
+        ],
+        "exercises": [
+          {
+            "difficulty": "basic",
+            "statement": "Un automóvil que circula a 72 km/h frena uniformemente hasta detenerse en 4.0 s. ¿Cuál es su aceleración y qué distancia recorre hasta parar?",
+            "options": [
+              {
+                "id": "A",
+                "text": "a = 5.0 m/s², distancia = 40 m"
+              },
+              {
+                "id": "B",
+                "text": "a = 18.0 m/s², distancia = 144 m"
+              },
+              {
+                "id": "C",
+                "text": "a = 5.0 m/s², distancia = 80 m"
+              },
+              {
+                "id": "D",
+                "text": "a = 2.5 m/s², distancia = 20 m"
+              }
+            ],
+            "correct": "A",
+            "solution": "1. Convertir 72 km/h a m/s dividiendo entre 3.6: v0 = 20 m/s.\\n2. a = (vf - v0)/t = (0 - 20)/4 = -5.0 m/s² (desaceleración de 5 m/s²).\\n3. Δx = v0*t + 0.5*a*t² = 20*4 - 0.5*5.0*(16) = 80 - 40 = 40 m.",
+            "explanation": "Recuerda siempre transformar km/h a m/s dividiendo entre 3.6 antes de aplicar las ecuaciones."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module_name": "Dinámica",
+    "slug": "5to-dinamica",
+    "desc": "Fuerzas, leyes de Newton, plano inclinado y rozamiento.",
+    "icon": "shield",
+    "topics": [
+      {
+        "name": "Fuerzas y Leyes de Newton",
+        "slug": "5to-leyes-newton-dinamica",
+        "summary": "Principios de inercia, masa y acción-reacción. Diagramas de cuerpo libre, plano inclinado y modelo de fricción estática y cinética.",
+        "theory": "<h3>1. Las Tres Leyes de Newton</h3>\n<p>• <strong>1.ª Ley (Inercia):</strong> Todo cuerpo persevera en su estado de reposo o MRU si la fuerza neta externa es nula (ΣF = 0 ⇔ v = cte).<br>\n• <strong>2.ª Ley (Fundamental):</strong> La aceleración es directamente proporcional a la fuerza neta resultante: <code>ΣF = m · a</code> [Newton, N = kg·m/s²].<br>\n• <strong>3.ª Ley (Acción y Reacción):</strong> Si el cuerpo A ejerce una fuerza sobre B, B reacciona sobre A con igual magnitud y sentido opuesto. Actúan en cuerpos diferentes, nunca se anulan entre sí.</p>\n\n<h3>2. Rozamiento Seco (Amontons-Coulomb)</h3>\n<p>• <strong>Estático (f_re):</strong> Actúa antes de que haya deslizamiento. Se autoajusta: <code>0 ≤ f_re ≤ μ_e · N</code>.<br>\n• <strong>Cinético (f_rc):</strong> Actúa durante el deslizamiento: <code>f_rc = μ_c · N</code> (con μ_c < μ_e).</p>\n\n<h3>3. Plano Inclinado con Ángulo α</h3>\n<p>Descomponiendo el peso en ejes paralelos y perpendiculares al plano:<br>\n• Componente paralela: <code>Px = m · g · sen(α)</code><br>\n• Componente perpendicular: <code>Py = m · g · cos(α)</code><br>\n• Fuerza Normal: <code>N = m · g · cos(α)</code><br>\n• Ángulo crítico de deslizamiento inminente: <code>tan(α_c) = μ_e</code></p>",
+        "concepts": [
+          "Leyes de Newton",
+          "Fricción Estática y Cinética",
+          "Plano Inclinado",
+          "Diagrama de Cuerpo Libre"
+        ],
+        "exercises": [
+          {
+            "difficulty": "intermediate",
+            "statement": "Un bloque de 10 kg descansa sobre un plano horizontal con μ_e = 0.40 y μ_c = 0.30. Si se le aplica una fuerza horizontal de 30 N, ¿cuánto vale la fuerza de rozamiento? (g = 9.8 m/s²).",
+            "options": [
+              {
+                "id": "A",
+                "text": "f_r = 30 N (el bloque no desliza)"
+              },
+              {
+                "id": "B",
+                "text": "f_r = 39.2 N"
+              },
+              {
+                "id": "C",
+                "text": "f_r = 29.4 N"
+              },
+              {
+                "id": "D",
+                "text": "f_r = 0 N"
+              }
+            ],
+            "correct": "A",
+            "solution": "Normal N = m*g = 98 N. Rozamiento estático límite: f_re_max = 0.40*98 = 39.2 N. Como la fuerza aplicada F = 30 N es menor a 39.2 N, el bloque permanece en reposo y f_re se autoajusta a 30 N.",
+            "explanation": "El rozamiento estático no siempre vale μ_e * N; ese es su valor máximo límite. Si no se supera, iguala a la fuerza aplicada."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module_name": "Trabajo y Energía",
+    "slug": "5to-trabajo-energia",
+    "desc": "Trabajo mecánico, energía cinética, potencial y conservación.",
+    "icon": "battery-charging",
+    "topics": [
+      {
+        "name": "Trabajo Mecánico, Energía y Potencia",
+        "slug": "5to-trabajo-mecanico-energia",
+        "summary": "Teorema de las fuerzas vivas, energía cinética, potencial gravitatoria y elástica, conservación de la energía mecánica y potencia.",
+        "theory": "<h3>1. Trabajo Mecánico (W)</h3>\n<p>Transferencia de energía por aplicación de una fuerza a lo largo de un desplazamiento: <code>W = F · d · cos(θ)</code> [Joule, J].<br>\n• θ < 90°: Trabajo motor (W > 0).<br>\n• θ = 90°: Trabajo nulo (W = 0, como la Normal en un plano horizontal).<br>\n• θ > 90°: Trabajo resistente (W < 0, como la fricción cinética).</p>\n\n<h3>2. Energía Cinética y Teorema del Trabajo</h3>\n<p>• Energía Cinética: <code>Ek = ½ m · v²</code><br>\n• Teorema del Trabajo y la Energía: <code>W_neto = ΔEk = ½ m · vf² - ½ m · v0²</code></p>\n\n<h3>3. Conservación de la Energía Mecánica</h3>\n<p>• Energía Mecánica total: <code>Em = Ek + Epg + Epe = ½ m v² + m g h + ½ k x²</code><br>\n• En sistemas puramente conservativos: <code>ΔEm = 0 ⇔ Em_inicial = Em_final</code><br>\n• Si actúan fuerzas no conservativas (ej. fricción): <code>W_nc = ΔEm = Em_final - Em_inicial</code></p>\n\n<h3>4. Potencia Mecánica</h3>\n<p>Rapidez temporal con la que se transfiere trabajo: <code>P = W / Δt = F · v</code> [Watt, W = J/s].</p>",
+        "concepts": [
+          "Trabajo Mecánico",
+          "Teorema del Trabajo y Energía",
+          "Conservación de Energía Mecánica",
+          "Potencia"
+        ],
+        "exercises": [
+          {
+            "difficulty": "intermediate",
+            "statement": "Un cuerpo de 2.0 kg se suelta desde el reposo desde una altura h = 5.0 m sin rozamiento. ¿Con qué rapidez impacta en el suelo? (g = 9.8 m/s²).",
+            "options": [
+              {
+                "id": "A",
+                "text": "v = 9.9 m/s"
+              },
+              {
+                "id": "B",
+                "text": "v = 49.0 m/s"
+              },
+              {
+                "id": "C",
+                "text": "v = 14.0 m/s"
+              },
+              {
+                "id": "D",
+                "text": "v = 7.0 m/s"
+              }
+            ],
+            "correct": "A",
+            "solution": "Por conservación de energía mecánica: E_inicial = E_final => m*g*h = 0.5*m*v² => v = sqrt(2*g*h) = sqrt(2 * 9.8 * 5.0) = sqrt(98) ≈ 9.9 m/s.",
+            "explanation": "La masa se simplifica en ambos miembros, demostrando que todos los cuerpos caen con la misma rapidez en caída libre sin rozamiento."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module_name": "Cantidad de Movimiento e Impulso",
+    "slug": "5to-impulso-choques",
+    "desc": "Momento lineal, impulso y conservación en choques.",
+    "icon": "shuffle",
+    "topics": [
+      {
+        "name": "Momento Lineal e Impulso",
+        "slug": "5to-momento-lineal-choques",
+        "summary": "Cantidad de movimiento p = m·v, teorema del impulso, principio de conservación y análisis de choques elásticos e inelásticos.",
+        "theory": "<h3>1. Momento Lineal (p) e Impulso (I)</h3>\n<p>• <strong>Momento Lineal:</strong> Magnitud vectorial <code>p = m · v</code> [kg·m/s].<br>\n• <strong>Impulso de una fuerza:</strong> <code>I = F · Δt</code> [N·s].<br>\n• <strong>Teorema del Impulso:</strong> El impulso de la fuerza neta es igual a la variación de la cantidad de movimiento: <code>I_neto = Δp = p_final - p_inicial</code>.</p>\n\n<h3>2. Ley de Conservación del Momento Lineal</h3>\n<p>Si la resultante de fuerzas exteriores sobre un sistema es nula (ΣF_ext = 0):<br>\n<code>P_inicial = P_final ⇔ Σ m_i · v_i,inicial = Σ m_i · v_i,final</code></p>\n\n<h3>3. Clasificación de Choques</h3>\n<p>• <strong>Elástico (e = 1):</strong> Se conservan tanto el momento lineal como la energía cinética total.<br>\n• <strong>Inelástico (0 < e < 1):</strong> Se conserva el momento lineal, pero parte de la energía se transforma en calor o deformación.<br>\n• <strong>Plástico o Totalmente Inelástico (e = 0):</strong> Los cuerpos quedan unidos tras el impacto viajando con una velocidad común: <code>vf = (m1·v1 + m2·v2) / (m1 + m2)</code>.</p>",
+        "concepts": [
+          "Momento Lineal",
+          "Teorema del Impulso",
+          "Conservación del Momento",
+          "Choques Elásticos y Plásticos"
+        ],
+        "exercises": [
+          {
+            "difficulty": "intermediate",
+            "statement": "Un vagón de masa m1 = 2000 kg se desplaza a 3.0 m/s y choca plásticamente contra otro vagón m2 = 1000 kg en reposo, quedando acoplados. ¿Cuál es la velocidad final del conjunto?",
+            "options": [
+              {
+                "id": "A",
+                "text": "vf = 2.0 m/s"
+              },
+              {
+                "id": "B",
+                "text": "vf = 1.5 m/s"
+              },
+              {
+                "id": "C",
+                "text": "vf = 3.0 m/s"
+              },
+              {
+                "id": "D",
+                "text": "vf = 1.0 m/s"
+              }
+            ],
+            "correct": "A",
+            "solution": "Conservación de p: m1*v1 + m2*v2 = (m1 + m2)*vf => 2000*3 + 0 = 3000*vf => 6000 = 3000*vf => vf = 2.0 m/s.",
+            "explanation": "En choques plásticos los cuerpos se mueven como una sola masa combinada tras el impacto."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module_name": "Movimiento Circular",
+    "slug": "5to-movimiento-circular",
+    "desc": "Cinemática angular, MCU, MCUV y fuerza centrípeta.",
+    "icon": "rotate-cw",
+    "topics": [
+      {
+        "name": "Cinemática y Dinámica Circular (MCU y MCUV)",
+        "slug": "5to-mcu-fuerza-centripeta",
+        "summary": "Período, frecuencia, velocidad angular y tangencial, aceleración centrípeta y fuerza centrípeta.",
+        "theory": "<h3>1. Cinemática Angular</h3>\n<p>• Ángulo en radianes: <code>s = r · θ</code><br>\n• Velocidad angular: <code>ω = Δθ / Δt</code> [rad/s]<br>\n• Velocidad tangencial: <code>vt = ω · r</code><br>\n• Período (T): Tiempo de una vuelta completa: <code>T = 2π / ω</code> [s]<br>\n• Frecuencia (f): Vueltas por segundo: <code>f = 1 / T = ω / 2π</code> [Hz]</p>\n\n<h3>2. Aceleración Centrípeta y Fuerza Centrípeta</h3>\n<p>En el Movimiento Circular Uniforme (MCU), la rapidez es constante pero el vector velocidad cambia continuamente de dirección:<br>\n• <strong>Aceleración Centrípeta (ac):</strong> Dirigida siempre radialmente hacia el centro de la trayectoria:<br>\n<code>ac = vt² / r = ω² · r</code><br>\n• <strong>Fuerza Centrípeta (Fc):</strong> Resultante de fuerzas en la dirección radial:<br>\n<code>Fc = m · ac = m · (vt² / r) = m · ω² · r</code></p>",
+        "concepts": [
+          "Velocidad Angular y Tangencial",
+          "Período y Frecuencia",
+          "Aceleración Centrípeta",
+          "Fuerza Centrípeta"
+        ],
+        "exercises": [
+          {
+            "difficulty": "basic",
+            "statement": "Un móvil describe una circunferencia de radio r = 2.0 m con una rapidez tangencial constante vt = 6.0 m/s. ¿Cuánto vale su aceleración centrípeta?",
+            "options": [
+              {
+                "id": "A",
+                "text": "ac = 18.0 m/s²"
+              },
+              {
+                "id": "B",
+                "text": "ac = 3.0 m/s²"
+              },
+              {
+                "id": "C",
+                "text": "ac = 12.0 m/s²"
+              },
+              {
+                "id": "D",
+                "text": "ac = 9.0 m/s²"
+              }
+            ],
+            "correct": "A",
+            "solution": "ac = vt² / r = (6.0)² / 2.0 = 36.0 / 2.0 = 18.0 m/s² apuntando hacia el centro.",
+            "explanation": "La aceleración centrípeta crece cuadráticamente con la velocidad tangencial e inversamente con el radio."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module_name": "Gravitación",
+    "slug": "5to-gravitacion",
+    "desc": "Ley de Gravitación Universal de Newton y Leyes de Kepler.",
+    "icon": "globe",
+    "topics": [
+      {
+        "name": "Gravitación Universal y Leyes de Kepler",
+        "slug": "5to-gravitacion-kepler",
+        "summary": "Atracción gravitatoria mutua, aceleración de gravedad g, velocidades orbitales y las tres leyes del movimiento planetario.",
+        "theory": "<h3>1. Ley de Gravitación Universal de Newton</h3>\n<p>Dos masas se atraen mutuamente con una fuerza proporcional a sus masas e inversamente proporcional al cuadrado de la distancia:<br>\n<code>F = G · (m1 · m2) / r²</code><br>\nDonde <code>G = 6.674 × 10⁻¹¹ N·m²/kg²</code> es la constante de gravitación universal.</p>\n\n<h3>2. Campo Gravitatorio</h3>\n<p>Aceleración de gravedad en la superficie de un planeta de masa M y radio R:<br>\n<code>g = G · M / R²</code></p>\n\n<h3>3. Las Tres Leyes de Kepler</h3>\n<p>• <strong>1.ª Ley:</strong> Las órbitas de los planetas son elípticas con el Sol en uno de los focos.<br>\n• <strong>2.ª Ley (Áreas):</strong> El radio vector barre áreas iguales en tiempos iguales (consecuencia de la conservación del momento angular).<br>\n• <strong>3.ª Ley:</strong> El cuadrado del período orbital es proporcional al cubo del semieje mayor: <code>T² / a³ = 4π² / (G·M) = cte</code>.</p>",
+        "concepts": [
+          "Ley de Gravitación Universal",
+          "Aceleración Gravitatoria",
+          "Velocidad Orbital",
+          "Leyes de Kepler"
+        ],
+        "exercises": [
+          {
+            "difficulty": "intermediate",
+            "statement": "Si la distancia entre dos cuerpos celestes se duplica (r2 = 2*r1), ¿cómo cambia la fuerza de atracción gravitatoria entre ellos?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Se reduce a la cuarta parte (F / 4)"
+              },
+              {
+                "id": "B",
+                "text": "Se reduce a la mitad (F / 2)"
+              },
+              {
+                "id": "C",
+                "text": "Se duplica (2*F)"
+              },
+              {
+                "id": "D",
+                "text": "Permanece constante"
+              }
+            ],
+            "correct": "A",
+            "solution": "F es inversamente proporcional al cuadrado de la distancia: F ∝ 1/r². Al duplicar r, F ∝ 1/(2r)² = 1/(4r²), por lo que la fuerza disminuye a la cuarta parte.",
+            "explanation": "Es la ley del inverso del cuadrado, aplicable a la gravedad y a la electrostática."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module_name": "Estática / Equilibrio",
+    "slug": "5to-estatica-equilibrio",
+    "desc": "Condiciones de equilibrio traslacional y rotacional, torque y palancas.",
+    "icon": "anchor",
+    "topics": [
+      {
+        "name": "Estática y Equilibrio de Cuerpos Rígidos",
+        "slug": "5to-estatica-torque",
+        "summary": "Primera y segunda condición de equilibrio, momento de una fuerza (torque), brazo de palanca y máquinas simples.",
+        "theory": "<h3>1. Condiciones de Equilibrio</h3>\n<p>Un cuerpo rígido está en equilibrio mecánico completo cuando no acelera ni traslacional ni rotacionalmente:<br>\n• <strong>1.ª Condición (Traslacional):</strong> La suma vectorial de fuerzas externas es cero: <code>Σ F_ext = 0 (Σ Fx = 0, Σ Fy = 0)</code>.<br>\n• <strong>2.ª Condición (Rotacional):</strong> La suma de momentos de fuerza (torques) respecto a cualquier punto es cero: <code>Σ τ_O = 0</code>.</p>\n\n<h3>2. Momento de una Fuerza o Torque (τ)</h3>\n<p>Mide la capacidad de una fuerza para generar rotación alrededor de un pivote:<br>\n<code>τ = r · F · sen(θ) = F · d_brazo</code> [N·m]<br>\nDonde <code>d_brazo</code> es la distancia perpendicular desde el centro de giro hasta la línea de acción de la fuerza.<br>\n• Signos convencionales: Antihorario (+) / Horario (-).</p>",
+        "concepts": [
+          "Equilibrio Traslacional",
+          "Torque o Momento de Fuerza",
+          "Equilibrio Rotacional",
+          "Palancas"
+        ],
+        "exercises": [
+          {
+            "difficulty": "basic",
+            "statement": "Se aplica una fuerza perpendicular de 50 N al extremo de una llave de 0.30 m de longitud. ¿Cuál es el torque ejercido sobre la tuerca?",
+            "options": [
+              {
+                "id": "A",
+                "text": "τ = 15.0 N·m"
+              },
+              {
+                "id": "B",
+                "text": "τ = 150.0 N·m"
+              },
+              {
+                "id": "C",
+                "text": "τ = 50.0 N·m"
+              },
+              {
+                "id": "D",
+                "text": "τ = 166.7 N·m"
+              }
+            ],
+            "correct": "A",
+            "solution": "τ = F * d * sen(90°) = 50 N * 0.30 m * 1 = 15.0 N·m.",
+            "explanation": "El torque máximo se obtiene aplicando la fuerza a 90° respecto al brazo de palanca."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module_name": "Fluidos",
+    "slug": "5to-fluidos",
+    "desc": "Presión hidrostática, principio de Pascal, empuje y Arquímedes.",
+    "icon": "droplet",
+    "topics": [
+      {
+        "name": "Mecánica de Fluidos: Presión y Empuje",
+        "slug": "5to-fluidos-presion-empuje",
+        "summary": "Presión hidrostática ΔP = ρ·g·h, principio de Pascal (prensa hidráulica), principio de Arquímedes y condiciones de flotación.",
+        "theory": "<h3>1. Presión y Presión Hidrostática</h3>\n<p>• Presión: <code>P = F_perp / A</code> [Pascal, Pa = N/m²]. 1 atm = 101325 Pa = 760 mmHg.<br>\n• Ecuación Fundamental: <code>ΔP = ρ · g · h</code>.<br>\n• Presión absoluta: <code>P_abs = P_atm + ρ · g · h</code>.</p>\n\n<h3>2. Principio de Pascal</h3>\n<p>La presión aplicada a un fluido incompresible y cerrado se transmite íntegramente a todos los puntos:<br>\nPrensa hidráulica: <code>F1 / A1 = F2 / A2 ⇔ F2 = F1 · (A2 / A1)</code>.</p>\n\n<h3>3. Principio de Arquímedes (Fuerza de Empuje)</h3>\n<p>Todo cuerpo sumergido experimenta un empuje vertical hacia arriba igual al peso del fluido desalojado:<br>\n<code>E = ρ_fluido · V_sumergido · g</code><br>\n• Si ρ_cuerpo > ρ_fluido: Se hunde.<br>\n• Si ρ_cuerpo < ρ_fluido: Flota emergiendo parcialmente.</p>",
+        "concepts": [
+          "Presión Hidrostática",
+          "Principio de Pascal",
+          "Principio de Arquímedes",
+          "Condiciones de Flotación"
+        ],
+        "exercises": [
+          {
+            "difficulty": "intermediate",
+            "statement": "Un cubo de madera de volumen V = 0.002 m³ se sumerge completamente en agua (densidad = 1000 kg/m³). ¿Qué empuje hidrostático recibe? (g = 9.8 m/s²).",
+            "options": [
+              {
+                "id": "A",
+                "text": "E = 19.6 N"
+              },
+              {
+                "id": "B",
+                "text": "E = 2.0 N"
+              },
+              {
+                "id": "C",
+                "text": "E = 196.0 N"
+              },
+              {
+                "id": "D",
+                "text": "E = 9.8 N"
+              }
+            ],
+            "correct": "A",
+            "solution": "E = ρ_agua * V_sum * g = 1000 kg/m³ * 0.002 m³ * 9.8 m/s² = 19.6 N hacia arriba.",
+            "explanation": "El empuje depende del volumen del fluido desplazado y de la densidad del líquido, no de la masa del cuerpo sumergido."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module_name": "Ondas",
+    "slug": "5to-ondas",
+    "desc": "Características, sonido y fenómenos ondulatorios.",
+    "icon": "radio",
+    "topics": [
+      {
+        "name": "Ondas: Fenómenos Ondulatorios y Sonido",
+        "slug": "5to-ondas-sonido-fenomenos",
+        "summary": "Parámetros v = λ·f, reflexión, refracción, difracción, interferencia, ondas sonoras y efecto Doppler.",
+        "theory": "<h3>1. Parámetros Fundamentales</h3>\n<p>Una onda transporta energía y momento sin transporte neto de materia.<br>\n• Relación universal: <code>v = λ / T = λ · f</code><br>\nDonde λ es la longitud de onda [m], T el período [s] y f la frecuencia [Hz].</p>\n\n<h3>2. Fenómenos Ondulatorios</h3>\n<p>• <strong>Reflexión:</strong> El ángulo de incidencia es igual al de reflexión (θi = θr).<br>\n• <strong>Refracción:</strong> Cambio de velocidad y dirección al cambiar de medio (Ley de Snell: sen(θ1)/sen(θ2) = v1/v2).<br>\n• <strong>Difracción:</strong> Capacidad de rodear obstáculos cuando la abertura es comparable a λ.<br>\n• <strong>Interferencia:</strong> Superposición constructiva o destructiva de ondas coherentes.</p>\n\n<h3>3. Ondas Sonoras y Efecto Doppler</h3>\n<p>Onda mecánica longitudinal en un medio elástico (v_aire ≈ 343 m/s a 20 °C).<br>\n• Efecto Doppler: Variación de frecuencia percibida por movimiento relativo entre fuente y observador:<br>\n<code>f_percibida = f0 · [(v ± v_obs) / (v ∓ v_fuente)]</code></p>",
+        "concepts": [
+          "Ecuación de Onda v = λ·f",
+          "Fenómenos Ondulatorios",
+          "Sonido y Acústica",
+          "Efecto Doppler"
+        ],
+        "exercises": [
+          {
+            "difficulty": "basic",
+            "statement": "Una onda sonora se propaga en el aire a 340 m/s con una frecuencia de 170 Hz. ¿Cuál es su longitud de onda λ?",
+            "options": [
+              {
+                "id": "A",
+                "text": "λ = 2.0 m"
+              },
+              {
+                "id": "B",
+                "text": "λ = 0.5 m"
+              },
+              {
+                "id": "C",
+                "text": "λ = 57800 m"
+              },
+              {
+                "id": "D",
+                "text": "λ = 1.0 m"
+              }
+            ],
+            "correct": "A",
+            "solution": "v = λ * f => λ = v / f = 340 m/s / 170 Hz = 2.0 m.",
+            "explanation": "A mayor frecuencia corresponde menor longitud de onda para una misma velocidad de propagación."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module_name": "Electricidad",
+    "slug": "5to-electricidad",
+    "desc": "Carga, campo eléctrico, potencial, corriente y circuitos básicos.",
+    "icon": "activity",
+    "topics": [
+      {
+        "name": "Electricidad de 5to: Electrostática y Circuitos Básicos",
+        "slug": "5to-electricidad-circuitos-basicos",
+        "summary": "Carga eléctrica, fuerza de Coulomb, campo eléctrico, diferencia de potencial, ley de Ohm y circuitos elementales.",
+        "theory": "<h3>1. Fundamentos Electrostáticos</h3>\n<p>• Carga eléctrica (q): Cuantizada en múltiplos de e = 1.6 × 10⁻¹⁹ C.<br>\n• <strong>Ley de Coulomb:</strong> <code>F = ke · (|q1 · q2|) / r²</code> (ke ≈ 9.0 × 10⁹ N·m²/C²).<br>\n• <strong>Campo Eléctrico (E):</strong> <code>E = F / q0 = ke · Q / r²</code> [N/C = V/m].<br>\n• <strong>Potencial Eléctrico (V):</strong> <code>V = ke · Q / r</code> [Voltio, V].</p>\n\n<h3>2. Corriente Continua y Ley de Ohm</h3>\n<p>• Corriente: <code>I = Δq / Δt</code> [Amperio, A].<br>\n• <strong>Ley de Ohm:</strong> <code>V = I · R</code><br>\n• <strong>Potencia Eléctrica:</strong> <code>P = V · I = I² · R = V² / R</code> [Watt, W].<br>\n• Asociación en Serie: <code>Req = R1 + R2 + ...</code> (misma corriente).<br>\n• Asociación en Paralelo: <code>1/Req = 1/R1 + 1/R2 + ...</code> (misma tensión).</p>",
+        "concepts": [
+          "Ley de Coulomb",
+          "Campo Eléctrico",
+          "Ley de Ohm",
+          "Asociación Serie y Paralelo"
+        ],
+        "exercises": [
+          {
+            "difficulty": "basic",
+            "statement": "Por un resistor de 10 Ω conectado a una batería circula una corriente de 2.0 A. ¿Cuál es el voltaje aplicado y la potencia disipada?",
+            "options": [
+              {
+                "id": "A",
+                "text": "V = 20 V, P = 40 W"
+              },
+              {
+                "id": "B",
+                "text": "V = 5 V, P = 10 W"
+              },
+              {
+                "id": "C",
+                "text": "V = 20 V, P = 20 W"
+              },
+              {
+                "id": "D",
+                "text": "V = 10 V, P = 40 W"
+              }
+            ],
+            "correct": "A",
+            "solution": "1. Ley de Ohm: V = I * R = 2.0 A * 10 Ω = 20 V.\\n2. Potencia: P = V * I = 20 V * 2.0 A = 40 W (o P = I²*R = 4*10 = 40 W).",
+            "explanation": "La potencia eléctrica calculada representa el calor generado por Efecto Joule en el resistor."
+          }
+        ]
+      }
+    ]
+  }
+]

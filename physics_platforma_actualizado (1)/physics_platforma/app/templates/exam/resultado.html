@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto space-y-6">
+    <!-- Banner de resultado -->
+    <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Resultado del Simulacro</span>
+            <h1 class="text-2xl sm:text-3xl font-black text-slate-800 mt-1">Calificación: {{ exam.score_percent }}%</h1>
+            <p class="text-xs text-slate-500 mt-1">
+                Completaste {{ exam.correct_count }} de {{ results|length }} preguntas correctamente en {{ exam.year_level }}.º Año.
+            </p>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <div class="px-5 py-3 rounded-2xl text-center
+                {% if exam.score_percent >= 70 %} bg-emerald-50 border border-emerald-300 text-emerald-900
+                {% elif exam.score_percent >= 45 %} bg-amber-50 border border-amber-300 text-amber-900
+                {% else %} bg-red-50 border border-red-300 text-red-900 {% endif %}">
+                <span class="block text-2xl font-black">{{ grade }}</span>
+                <span class="text-[10px] uppercase font-extrabold tracking-wider opacity-80">Desempeño</span>
+            </div>
+
+            <a href="/simulacro" class="px-4 py-3 bg-physics-600 hover:bg-physics-700 text-white font-bold text-xs rounded-xl shadow transition">
+                Nuevo Simulacro
+            </a>
+        </div>
+    </div>
+
+    <!-- Desglose pregunta por pregunta -->
+    <div class="space-y-4">
+        <h2 class="text-lg font-black text-slate-800">Revisión Detallada de Respuestas</h2>
+
+        {% for r in results %}
+        <div class="bg-white rounded-2xl border p-5 sm:p-6 shadow-sm space-y-3
+            {% if r.is_correct %} border-emerald-200 {% else %} border-red-200 {% endif %}">
+            
+            <div class="flex justify-between items-start">
+                <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-black
+                        {% if r.is_correct %} bg-emerald-100 text-emerald-700 {% else %} bg-red-100 text-red-700 {% endif %}">
+                        {% if r.is_correct %}&check;{% else %}&times;{% endif %}
+                    </span>
+                    <span class="text-xs font-bold text-slate-600">Pregunta {{ loop.index }} &bull; {{ r.topic_name }}</span>
+                </div>
+                <span class="text-[11px] font-extrabold px-2 py-0.5 rounded-full
+                    {% if r.is_correct %} bg-emerald-50 text-emerald-700 border border-emerald-200
+                    {% else %} bg-red-50 text-red-700 border border-red-200 {% endif %}">
+                    {% if r.is_correct %}Correcta{% else %}Incorrecta{% endif %}
+                </span>
+            </div>
+
+            <div class="text-sm font-semibold text-slate-800 leading-relaxed">
+                {{ r.statement }}
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
+                <div class="p-3 rounded-xl {% if r.is_correct %} bg-emerald-50 text-emerald-950 {% else %} bg-red-50 text-red-950 {% endif %}">
+                    <span class="font-bold block opacity-75">Tu respuesta:</span>
+                    <span class="font-extrabold text-sm">{{ r.user_answer or "No respondida" }}</span>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-800">
+                    <span class="font-bold block opacity-75">Respuesta correcta:</span>
+                    <span class="font-extrabold text-sm text-physics-600">{{ r.correct_answer }}</span>
+                </div>
+            </div>
+
+            {% if r.solution_steps %}
+            <div class="pt-2 border-t border-slate-100">
+                <span class="text-xs font-bold text-slate-700 block mb-1">Resolución paso a paso:</span>
+                <pre class="font-mono text-[11px] whitespace-pre-wrap text-slate-600 bg-slate-50 p-3 rounded-xl">{{ r.solution_steps }}</pre>
+            </div>
+            {% endif %}
+
+            {% if r.explanation %}
+            <div class="pt-2 text-xs text-slate-600">
+                <span class="font-bold text-slate-700">Fundamento teórico:</span> {{ r.explanation }}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

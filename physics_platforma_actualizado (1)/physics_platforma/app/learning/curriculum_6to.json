@@ -1,0 +1,423 @@
+[
+  {
+    "module_name": "Electrostática",
+    "slug": "6to-electrostatica",
+    "desc": "Ley de Coulomb, campo eléctrico, líneas de campo, potencial y energía potencial electrostática.",
+    "icon": "zap",
+    "topics": [
+      {
+        "name": "Ley de Coulomb y Fuerza Electrostática",
+        "slug": "6to-ley-de-coulomb",
+        "summary": "Naturaleza de la carga, cuantización, conservación y fuerza electrostática mutua vectorial entre cargas puntuales.",
+        "theory": "<h3>1. Carga Eléctrica y Principios Fundamentales</h3>\n<p>• <strong>Conservación:</strong> La carga neta de un sistema cerrado permanece rigurosamente constante: <code>Σ q_i = cte</code>.<br>\n• <strong>Cuantización:</strong> Toda carga observable es múltiplo entero de la carga elemental <code>e = 1.602 × 10⁻¹⁹ C</code> (q = ± n · e).</p>\n\n<h3>2. Ley de Coulomb Vectorial</h3>\n<p>Fuerza electrostática mutua entre dos cargas puntuales estacionarias q1 y q2 separadas por una distancia r en el vacío:<br>\n<code>F = (1 / 4πε0) · (|q1 · q2| / r²) = ke · (|q1 · q2| / r²)</code><br>\nDonde <code>ke ≈ 8.99 × 10⁹ N·m²/C²</code> (Constante de Coulomb) y <code>ε0 ≈ 8.854 × 10⁻¹² C²/(N·m²)</code>.<br>\n• Signos iguales se repelen; signos opuestos se atraen.<br>\n• Principio de superposición lineal: <code>F_total = Σ F_i0</code>.</p>",
+        "concepts": [
+          "Cuantización y Conservación de Carga",
+          "Ley de Coulomb Vectorial",
+          "Superposición Electrostática"
+        ],
+        "exercises": [
+          {
+            "difficulty": "intermediate",
+            "statement": "Dos cargas puntuales q1 = +4.0 μC y q2 = -2.0 μC están situadas en el vacío separadas por d = 0.30 m. ¿Cuál es la magnitud y tipo de fuerza mutua?",
+            "options": [
+              {
+                "id": "A",
+                "text": "F = 0.80 N, de atracción"
+              },
+              {
+                "id": "B",
+                "text": "F = 0.80 N, de repulsión"
+              },
+              {
+                "id": "C",
+                "text": "F = 2.40 N, de atracción"
+              },
+              {
+                "id": "D",
+                "text": "F = 0.08 N, de atracción"
+              }
+            ],
+            "correct": "A",
+            "solution": "F = 9.0x10⁹ * (4.0x10⁻⁶ * 2.0x10⁻⁶) / (0.30)² = 72x10⁻³ / 0.09 = 0.80 N. Al ser de signos opuestos (+ y -), la fuerza es de atracción mutua.",
+            "explanation": "Recuerda convertir microCoulombs (μC) a Coulombs multiplicando por 10⁻⁶."
+          }
+        ]
+      },
+      {
+        "name": "Campo Eléctrico y Líneas de Campo",
+        "slug": "6to-campo-lineas",
+        "summary": "Definición de E = F/q0, campo de cargas puntuales, superposición y propiedades físicas de las líneas de campo eléctrico.",
+        "theory": "<h3>1. Campo Eléctrico (E)</h3>\n<p>Propiedad vectorial del espacio modificada por cargas fuente. Fuerza por unidad de carga testigo positiva q0:<br>\n<code>E = lim (q0→0) [F / q0] = ke · Q / r² · r̂</code> [N/C = V/m]<br>\n• Si Q > 0: Campo radialmente saliente (divergente).<br>\n• Si Q < 0: Campo radialmente entrante (convergente).</p>\n\n<h3>2. Propiedades de las Líneas de Campo</h3>\n<p>1. Nacen en las cargas positivas (o en el infinito) y mueren en las negativas (o en el infinito).<br>\n2. El vector E es tangente a la línea en cada punto.<br>\n3. La densidad espacial de líneas es proporcional a la intensidad de ||E||.<br>\n4. <strong>Nunca se cruzan:</strong> si lo hicieran, en el punto de intersección el campo tendría dos direcciones simultáneas, lo cual es físicamente imposible.</p>",
+        "concepts": [
+          "Vector Campo Eléctrico",
+          "Líneas de Campo Eléctrico",
+          "Superposición de Campos"
+        ],
+        "exercises": [
+          {
+            "difficulty": "basic",
+            "statement": "¿Por qué dos líneas de campo eléctrico jamás pueden cruzarse en el espacio?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Porque implicaría que el vector campo eléctrico tendría dos direcciones simultáneas en un mismo punto, lo cual es físicamente imposible"
+              },
+              {
+                "id": "B",
+                "text": "Porque las cargas eléctricas siempre tienen el mismo signo"
+              },
+              {
+                "id": "C",
+                "text": "Porque el campo eléctrico es un escalar sin dirección"
+              },
+              {
+                "id": "D",
+                "text": "Porque las líneas de campo son siempre rectas paralelas"
+              }
+            ],
+            "correct": "A",
+            "solution": "En cualquier punto del espacio el vector campo eléctrico es único. Si dos líneas se cruzaran, en el punto de corte existirían dos vectores tangentes simultáneos, violando la unicidad del campo vectorial.",
+            "explanation": "La unicidad del vector campo electrostático garantiza que las líneas nunca se intersecten."
+          }
+        ]
+      },
+      {
+        "name": "Potencial Eléctrico y Energía Potencial",
+        "slug": "6to-potencial-energia-electrica",
+        "summary": "Trabajo del campo conservativo, energía potencial electrostática U, potencial escalar V, diferencia de potencial y superficies equipotenciales.",
+        "theory": "<h3>1. Energía Potencial Electrostática (U)</h3>\n<p>Dado que el campo electrostático es conservativo, el trabajo no depende de la trayectoria: <code>W = -ΔU = -(Ub - Ua)</code>.<br>\nPara dos cargas puntuales separadas por una distancia r (con U(∞) = 0):<br>\n<code>U(r) = ke · (q1 · q2) / r</code> [Joule, J]<br>\n• Signos iguales: U > 0 (repulsión).<br>\n• Signos opuestos: U < 0 (estado ligado).</p>\n\n<h3>2. Potencial Eléctrico Escalar (V)</h3>\n<p>Energía potencial por unidad de carga:<br>\n<code>V(r) = U(r) / q = ke · Q / r</code> [Voltio, 1 V = 1 J/C]<br>\n• Diferencia de potencial: <code>ΔV = Vb - Va = - ∫ E · dl</code>.<br>\n• En campo uniforme entre placas separadas una distancia d: <code>|ΔV| = E · d</code>.<br>\n• <strong>Superficies equipotenciales:</strong> Lugares geométricos donde V = cte. El vector E es siempre perpendicular a ellas y el trabajo a lo largo de una equipotencial es nulo (W = 0).</p>",
+        "concepts": [
+          "Energía Potencial U",
+          "Potencial Eléctrico V",
+          "Relación V = E·d",
+          "Superficies Equipotenciales"
+        ],
+        "exercises": [
+          {
+            "difficulty": "intermediate",
+            "statement": "Entre dos placas metálicas paralelas separadas d = 0.05 m existe una diferencia de potencial de 100 V. Si el campo eléctrico es uniforme, ¿cuál es su intensidad E?",
+            "options": [
+              {
+                "id": "A",
+                "text": "E = 2000 V/m"
+              },
+              {
+                "id": "B",
+                "text": "E = 5 V/m"
+              },
+              {
+                "id": "C",
+                "text": "E = 500 V/m"
+              },
+              {
+                "id": "D",
+                "text": "E = 20 V/m"
+              }
+            ],
+            "correct": "A",
+            "solution": "En campo uniforme: E = |ΔV| / d = 100 V / 0.05 m = 2000 V/m (o N/C).",
+            "explanation": "El gradiente de potencial relaciona directamente la tensión eléctrica con el campo electrostático entre conductores planos."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module_name": "Circuitos Eléctricos",
+    "slug": "6to-circuitos-electricos",
+    "desc": "Corriente, tensión, resistencia, Ley de Ohm y Leyes de Kirchhoff.",
+    "icon": "cpu",
+    "topics": [
+      {
+        "name": "Corriente, Tensión, Resistencia y Ley de Ohm",
+        "slug": "6to-corriente-tension-ohm",
+        "summary": "Definición de corriente I = dq/dt, resistencia por Ley de Pouillet (R = ρ·L/A), Ley de Ohm V = I·R, efecto Joule y asociaciones serie/paralelo.",
+        "theory": "<h3>1. Magnitudes Fundamentales</h3>\n<p>• <strong>Corriente (I):</strong> Flujo neto de carga por unidad de tiempo: <code>I = dq / dt</code> [Amperio, A = C/s].<br>\n• <strong>Tensión (V):</strong> Diferencia de potencial o energía por unidad de carga [Voltio, V].<br>\n• <strong>Resistencia (R):</strong> Ley de Pouillet geométrica: <code>R = ρ · L / A</code> [Ω], donde ρ es la resistividad [Ω·m], L la longitud [m] y A la sección [m²].</p>\n\n<h3>2. Ley de Ohm y Efecto Joule</h3>\n<p>Para conductores óhmicos:<br>\n<code>V = I · R ⇔ I = V / R ⇔ R = V / I</code><br>\n• <strong>Potencia disipada:</strong> <code>P = V · I = I² · R = V² / R</code> [Watt, W].<br>\n• Calor Joule generado durante tiempo t: <code>Q = I² · R · t</code> [J].</p>\n\n<h3>3. Asociaciones de Resistencias</h3>\n<p>• <strong>Serie:</strong> <code>Req = R1 + R2 + ...</code> (misma corriente I en cada rama).<br>\n• <strong>Paralelo:</strong> <code>1/Req = 1/R1 + 1/R2 + ...</code> (misma tensión V en cada rama). Para dos: <code>Req = (R1·R2) / (R1 + R2)</code>.</p>",
+        "concepts": [
+          "Corriente Eléctrica",
+          "Ley de Pouillet",
+          "Ley de Ohm",
+          "Efecto Joule",
+          "Resistencias Serie y Paralelo"
+        ],
+        "exercises": [
+          {
+            "difficulty": "basic",
+            "statement": "Dos resistores de R1 = 6 Ω y R2 = 3 Ω se conectan en paralelo a una fuente de 12 V. ¿Cuál es la resistencia equivalente y la corriente total entregada por la fuente?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Req = 2.0 Ω, I_total = 6.0 A"
+              },
+              {
+                "id": "B",
+                "text": "Req = 9.0 Ω, I_total = 1.33 A"
+              },
+              {
+                "id": "C",
+                "text": "Req = 4.5 Ω, I_total = 2.67 A"
+              },
+              {
+                "id": "D",
+                "text": "Req = 2.0 Ω, I_total = 12.0 A"
+              }
+            ],
+            "correct": "A",
+            "solution": "1. Req = (R1 * R2)/(R1 + R2) = (6 * 3)/(6 + 3) = 18 / 9 = 2.0 Ω.\\n2. I_total = V / Req = 12 V / 2.0 Ω = 6.0 A.",
+            "explanation": "En paralelo la resistencia equivalente es siempre menor que la menor de las resistencias individuales."
+          }
+        ]
+      },
+      {
+        "name": "Leyes de Kirchhoff (Nodos y Mallas)",
+        "slug": "6to-leyes-kirchhoff",
+        "summary": "Primera ley de Kirchhoff (conservación de carga en nodos) y Segunda ley (conservación de energía en mallas cerradas).",
+        "theory": "<h3>1. Primera Ley: Ley de Corrientes de Kirchhoff (LCK - Nodos)</h3>\n<p>Derivada de la <strong>conservación de la carga eléctrica</strong>. En cualquier nodo o unión de conductores:<br>\n<code>Σ I_entrantes = Σ I_salientes ⇔ Σ I_k = 0</code></p>\n\n<h3>2. Segunda Ley: Ley de Tensiones de Kirchhoff (LTK - Mallas)</h3>\n<p>Derivada de la <strong>conservación de la energía</strong> en un campo conservativo. A lo largo de cualquier malla cerrada:<br>\n<code>Σ ΔV_k = 0 ⇔ Σ E = Σ (I · R)</code></p>\n\n<h3>Convención Estricta de Signos:</h3>\n<p>• <strong>Fuentes de fem (E):</strong> De - a + se suma (+E); de + a - se resta (-E).<br>\n• <strong>Resistores (I·R):</strong> Al recorrer en el mismo sentido que la corriente asignada es una caída (-I·R); en sentido contrario es una ganancia (+I·R).</p>",
+        "concepts": [
+          "Ley de Nodos (LCK)",
+          "Ley de Mallas (LTK)",
+          "Conservación de Carga y Energía",
+          "Análisis de Redes Eléctricas"
+        ],
+        "exercises": [
+          {
+            "difficulty": "intermediate",
+            "statement": "En un nodo confluyen cuatro conductores: I1 = 3.0 A e I2 = 4.0 A entran al nodo; I3 = 2.0 A sale del nodo. ¿Cuánto vale la corriente I4 y hacia dónde circula?",
+            "options": [
+              {
+                "id": "A",
+                "text": "I4 = 5.0 A, saliendo del nodo"
+              },
+              {
+                "id": "B",
+                "text": "I4 = 5.0 A, entrando al nodo"
+              },
+              {
+                "id": "C",
+                "text": "I4 = 9.0 A, saliendo del nodo"
+              },
+              {
+                "id": "D",
+                "text": "I4 = 1.0 A, saliendo del nodo"
+              }
+            ],
+            "correct": "A",
+            "solution": "Por LCK: Σ I_entran = Σ I_salen => I1 + I2 = I3 + I4 => 3.0 + 4.0 = 2.0 + I4 => 7.0 = 2.0 + I4 => I4 = 5.0 A saliendo.",
+            "explanation": "La carga no puede acumularse ni crearse en un nodo ideal."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module_name": "Magnetismo",
+    "slug": "6to-magnetismo",
+    "desc": "Campo magnético, fuerza magnética de Lorentz e inducción electromagnética.",
+    "icon": "compass",
+    "topics": [
+      {
+        "name": "Campo Magnético y Fuerza de Lorentz",
+        "slug": "6to-campo-fuerza-magnetica",
+        "summary": "Vector B, inexistencia de monopolos, fuerza de Lorentz sobre cargas móviles F = q(v x B), regla de la mano derecha y fuerza sobre conductores.",
+        "theory": "<h3>1. Campo Magnético (B)</h3>\n<p>Generado por cargas en movimiento o imanes. Unidad SI: <code>Tesla [1 T = 1 N/(A·m)]</code> (1 T = 10⁴ Gauss).<br>\n• <strong>Inexistencia de monopolos:</strong> Las líneas de campo magnético son cerradas sobre sí mismas (∮ B · dA = 0).</p>\n\n<h3>2. Fuerza Magnética sobre Carga Libre (Fuerza de Lorentz)</h3>\n<p>Una carga q con velocidad v en un campo B experimenta:<br>\n<code>F = q · (v × B) ⇔ F = |q| · v · B · sen(θ)</code><br>\n• Dirección dada por la Regla de la Mano Derecha (dedo índice = v, dedo medio = B, pulgar = F).<br>\n• <strong>Trabajo y Energía:</strong> Como F es siempre perpendicular a v, <code>W = ∫ F · dr = 0</code>. El campo magnético estacionario <strong>NO</strong> realiza trabajo sobre una carga puntual libre: no altera su rapidez ni energía cinética, únicamente curva su trayectoria.</p>\n\n<h3>3. Fuerza sobre un Conductor Recto con Corriente</h3>\n<p>Para un conductor de longitud L con corriente I:<br>\n<code>F = I · (L × B) ⇔ F = I · L · B · sen(θ)</code></p>",
+        "concepts": [
+          "Campo Magnético B",
+          "Fuerza de Lorentz",
+          "Regla de la Mano Derecha",
+          "Trabajo Nulo del Campo Magnético"
+        ],
+        "exercises": [
+          {
+            "difficulty": "intermediate",
+            "statement": "Un protón entra perpendicularmente (θ = 90°) a un campo magnético uniforme B = 0.50 T con velocidad v = 2.0 × 10⁶ m/s. ¿Qué fuerza magnética experimenta y cuánto trabajo realiza el campo sobre él? (qp = 1.6 × 10⁻¹⁹ C).",
+            "options": [
+              {
+                "id": "A",
+                "text": "F = 1.6 × 10⁻¹³ N, Trabajo = 0 J"
+              },
+              {
+                "id": "B",
+                "text": "F = 1.6 × 10⁻¹³ N, Trabajo = 3.2 × 10⁻¹³ J"
+              },
+              {
+                "id": "C",
+                "text": "F = 0 N, Trabajo = 0 J"
+              },
+              {
+                "id": "D",
+                "text": "F = 3.2 × 10⁻¹³ N, Trabajo = 0 J"
+              }
+            ],
+            "correct": "A",
+            "solution": "F = q * v * B * sen(90°) = 1.6x10⁻¹⁹ C * 2.0x10⁶ m/s * 0.50 T * 1 = 1.6x10⁻¹³ N. Dado que la fuerza magnética es en todo instante ortogonal a la velocidad (F ⊥ v), la potencia instantánea P = F · v = 0 y el trabajo realizado es estrictamente cero.",
+            "explanation": "El campo magnético modifica la dirección del movimiento pero nunca altera la rapidez ni la energía cinética de la partícula."
+          }
+        ]
+      },
+      {
+        "name": "Inducción Electromagnética (Faraday-Lenz)",
+        "slug": "6to-induccion-faraday-lenz",
+        "summary": "Flujo magnético, ley de inducción de Faraday y principio de oposición de la ley de Lenz.",
+        "theory": "<h3>1. Flujo Magnético (Φ_B)</h3>\n<p>Medida del número de líneas de campo que atraviesan una superficie A:<br>\n<code>Φ_B = ∫ B · dA = B · A · cos(θ)</code> [Weber, 1 Wb = 1 T·m²].</p>\n\n<h3>2. Ley de Faraday-Lenz</h3>\n<p>Toda variación temporal del flujo magnético a través de un circuito induce una fuerza electromotriz (fem, E):<br>\n<code>E = - dΦ_B / dt = - N · (dΦ_B / dt)</code><br>\n• <strong>Significado de la Ley de Lenz (el signo negativo -):</strong><br>\nLa corriente inducida circula siempre en el sentido necesario para que su propio campo magnético inducido <strong>se oponga al cambio del flujo inductor original</strong>:<br>\n- Si el flujo magnético inductor <strong>aumenta</strong>, el campo inducido apunta en sentido <strong>contrario</strong>.<br>\n- Si el flujo magnético inductor <strong>disminuye</strong>, el campo inducido apunta en el <strong>mismo sentido</strong> para sostenerlo.</p>",
+        "concepts": [
+          "Flujo Magnético",
+          "Ley de Faraday",
+          "Ley de Lenz",
+          "Fem Inducida"
+        ],
+        "exercises": [
+          {
+            "difficulty": "intermediate",
+            "statement": "El flujo magnético a través de una bobina de 100 espiras cambia uniformemente de 0.08 Wb a 0.02 Wb en un intervalo de 0.20 s. ¿Cuál es la fem inducida?",
+            "options": [
+              {
+                "id": "A",
+                "text": "E = 30.0 V"
+              },
+              {
+                "id": "B",
+                "text": "E = 300.0 V"
+              },
+              {
+                "id": "C",
+                "text": "E = 6.0 V"
+              },
+              {
+                "id": "D",
+                "text": "E = 0.30 V"
+              }
+            ],
+            "correct": "A",
+            "solution": "ΔΦ = 0.02 - 0.08 = -0.06 Wb. E = - N * (ΔΦ / Δt) = - 100 * (-0.06 Wb / 0.20 s) = + 100 * 0.30 = 30.0 V.",
+            "explanation": "La ley de Faraday establece que la magnitud de la fem inducida es proporcional a la tasa de variación temporal del flujo."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "module_name": "Práctico e Instrumental",
+    "slug": "6to-practico-laboratorio",
+    "desc": "Multímetro (tester), capacitores (carga/descarga RC) y resistencias (código de colores y estrés).",
+    "icon": "tool",
+    "topics": [
+      {
+        "name": "El Multímetro Digital (Tester): Partes, Conexión y Seguridad",
+        "slug": "6to-tester-multimetro",
+        "summary": "Display, selector, bornes COM/VΩ/mA/10A, medición en serie vs paralelo, impedancias y precauciones críticas.",
+        "theory": "<h3>1. Partes y Bornes del Tester</h3>\n<p>• <strong>COM (Común / Masa):</strong> Siempre se conecta la <strong>punta negra</strong>.<br>\n• <strong>V / Ω / Hz:</strong> Para medir tensión y resistencia. Se conecta la <strong>punta roja</strong>. Posee muy alta impedancia interna (> 10 MΩ).<br>\n• <strong>mA / μA:</strong> Corrientes bajas. Protegido por fusible rápido (típicamente 200 a 500 mA).<br>\n• <strong>10A / 20A:</strong> Altas corrientes. Conectado a un shunt de muy baja resistencia interna (R < 0.01 Ω).</p>\n\n<h3>2. Reglas Cruciales de Conexión</h3>\n<table border='1' cellpadding='4' style='border-collapse: collapse;'>\n<tr><th>Función</th><th>Conexión</th><th>Estado del Circuito</th><th>Impedancia</th></tr>\n<tr><td><strong>Voltímetro (V)</strong></td><td>En <strong>PARALELO</strong></td><td>Con tensión (Activo)</td><td>Muy alta (> 10 MΩ)</td></tr>\n<tr><td><strong>Amperímetro (A)</strong></td><td>En <strong>SERIE</strong> (abriendo circuito)</td><td>Con tensión (Activo)</td><td>Casi nula (< 0.1 Ω)</td></tr>\n<tr><td><strong>Óhmetro (Ω)</strong></td><td>En <strong>PARALELO</strong></td><td><strong>DESENERGIZADO</strong></td><td>Inyecta corriente propia</td></tr>\n<tr><td><strong>Continuidad</strong></td><td>Entre bornes</td><td><strong>DESENERGIZADO</strong></td><td>Beep si R < 50 Ω</td></tr>\n</table>\n\n<p><strong>⚠️ Peligro Crítico de Cortocircuito:</strong> Conectar el amperímetro en paralelo con una fuente de alimentación crea un cortocircuito franco instantáneo que destruye el fusible y puede dañar el instrumento.</p>",
+        "concepts": [
+          "Bornes COM y Medición",
+          "Voltímetro en Paralelo",
+          "Amperímetro en Serie",
+          "Precauciones y Seguridad de Laboratorio"
+        ],
+        "exercises": [
+          {
+            "difficulty": "basic",
+            "statement": "¿Cómo se deben conectar respectivamente el voltímetro y el amperímetro para medir un componente en un circuito activo?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Voltímetro en paralelo; Amperímetro en serie (abriendo la rama)"
+              },
+              {
+                "id": "B",
+                "text": "Voltímetro en serie; Amperímetro en paralelo"
+              },
+              {
+                "id": "C",
+                "text": "Ambos en paralelo con el componente"
+              },
+              {
+                "id": "D",
+                "text": "Ambos en serie abriendo el circuito"
+              }
+            ],
+            "correct": "A",
+            "solution": "El voltímetro tiene alta impedancia y se coloca en paralelo para no alterar la corriente del circuito. El amperímetro tiene resistencia casi nula y debe intercalarse en serie abriendo el lazo.",
+            "explanation": "Conectar un amperímetro en paralelo causa un cortocircuito peligroso."
+          }
+        ]
+      },
+      {
+        "name": "Capacitores: Carga, Mantenimiento de Carga y Descarga RC",
+        "slug": "6to-capacitores-rc",
+        "summary": "Física del capacitor C = Q/V, constante de tiempo τ = R·C, curva dinámica de carga y descarga, resistencia de fuga y seguridad.",
+        "theory": "<h3>1. Almacenamiento de Carga y Energía</h3>\n<p>Un capacitor almacena energía electrostática en el campo eléctrico entre sus armaduras: <code>C = Q / V</code> [Faradio, F].<br>\nEnergía almacenada: <code>U = ½ C · V² = ½ Q · V</code> [J].</p>\n\n<h3>2. Circuito Transitorio RC y Constante de Tiempo (τ)</h3>\n<p><code>τ = R · C</code> [segundos].<br>\n• <strong>Ciclo de Carga (desde V=0 con fuente V0):</strong><br>\n<code>VC(t) = V0 · (1 - e^(-t / τ))</code>, <code>I(t) = (V0/R) · e^(-t / τ)</code><br>\n- En t = 1τ: El capacitor alcanza el <strong>63.2%</strong> de V0.<br>\n- En t = 5τ: Alcanza el <strong>99.3%</strong> (estado estacionario cargado).<br>\n• <strong>Ciclo de Descarga (a través de resistor R):</strong><br>\n<code>VC(t) = V0 · e^(-t / τ)</code><br>\n- En t = 1τ: Cae al <strong>36.8%</strong> de su valor.<br>\n- En t = 5τ: Menos del <strong>0.7%</strong> (completamente descargado).</p>\n\n<h3>3. Mantenimiento de Carga y Seguridad</h3>\n<p>• <strong>Resistencia de fuga:</strong> El dieléctrico no es ideal; los capacitores retienen su carga por horas o días.<br>\n• <strong>Seguridad:</strong> Nunca puentear terminales de capacitores cargados con metal. Utilizar una resistencia de descarga adecuada.</p>",
+        "concepts": [
+          "Capacitancia C = Q/V",
+          "Constante de Tiempo τ = RC",
+          "Evolución Dinámica en Carga y Descarga",
+          "Seguridad y Descarga"
+        ],
+        "exercises": [
+          {
+            "difficulty": "intermediate",
+            "statement": "En un circuito RC serie con R = 100 kΩ (10⁵ Ω) y C = 10 μF (10⁻⁵ F), ¿cuánto vale la constante de tiempo τ y cuánto tiempo se requiere para considerar la carga completa?",
+            "options": [
+              {
+                "id": "A",
+                "text": "τ = 1.0 s; carga completa (5τ) = 5.0 s"
+              },
+              {
+                "id": "B",
+                "text": "τ = 10.0 s; carga completa = 50.0 s"
+              },
+              {
+                "id": "C",
+                "text": "τ = 0.1 s; carga completa = 0.5 s"
+              },
+              {
+                "id": "D",
+                "text": "τ = 1.0 s; carga completa = 1.0 s"
+              }
+            ],
+            "correct": "A",
+            "solution": "τ = R * C = 10⁵ Ω * (10 * 10⁻⁶ F) = 1.0 segundo. El estado estacionario o carga completa se alcanza a partir de 5τ = 5.0 segundos (donde VC > 99.3% de V0).",
+            "explanation": "La constante de tiempo τ determina la escala temporal del régimen transitorio."
+          }
+        ]
+      },
+      {
+        "name": "Resistencias: Código de Colores y Pruebas de Estrés Térmico",
+        "slug": "6to-resistencias-colores-estres",
+        "summary": "Tabla maestra de 4 y 5 bandas, tolerancia, potencia nominal de catálogo, disipación por efecto Joule, calentamiento y modo de falla por sobrecarga.",
+        "theory": "<h3>1. Código de Colores (4 y 5 Bandas)</h3>\n<p>• Cifras: Negro (0), Marrón (1), Rojo (2), Naranja (3), Amarillo (4), Verde (5), Azul (6), Violeta (7), Gris (8), Blanco (9).<br>\n• Multiplicador: Dorado (×0.1), Plateado (×0.01), Negro (×1), Marrón (×10), Rojo (×100), Naranja (×1k), Amarillo (×10k).<br>\n• Tolerancia: Marrón (±1%), Rojo (±2%), Dorado (±5%), Plateado (±10%).<br>\n• <em>Ejemplo 4 bandas:</em> Marrón-Negro-Rojo-Dorado = 1 - 0 - ×100 - ±5% = <strong>1000 Ω = 1 kΩ ±5%</strong>.</p>\n\n<h3>2. Potencia Nominal y Pruebas de Estrés Térmico</h3>\n<p>La potencia disipada calienta el componente: <code>P = I² · R = V² / R</code>.<br>\n• Formatos comunes: 1/8 W (0.125 W), 1/4 W (0.25 W), 1/2 W (0.5 W), 1 W, 2 W y cerámicas (5 W - 20 W).<br>\n• <strong>Sobrecarga Térmica (Estrés):</strong><br>\n- A 2× P_nom: Temperatura > 120 °C, deriva del valor óhmico.<br>\n- A 3-4× P_nom: Temperatura > 220 °C, carbonización y humo.<br>\n- A ≥ 5× P_nom: Fractura o fusión de la espiral resistiva. El componente <strong>falla en circuito abierto (R → ∞)</strong>.</p>",
+        "concepts": [
+          "Código de Colores 4 y 5 Bandas",
+          "Cálculo de Tolerancias",
+          "Potencia Nominal de Catálogo",
+          "Modo de Falla por Sobrecarga Térmica"
+        ],
+        "exercises": [
+          {
+            "difficulty": "basic",
+            "statement": "Una resistencia de 4 bandas tiene los colores: Amarillo - Violeta - Rojo - Dorado. ¿Cuál es su valor nominal y rango de tolerancia?",
+            "options": [
+              {
+                "id": "A",
+                "text": "4.7 kΩ ± 5% (entre 4465 Ω y 4935 Ω)"
+              },
+              {
+                "id": "B",
+                "text": "470 Ω ± 5%"
+              },
+              {
+                "id": "C",
+                "text": "47 kΩ ± 10%"
+              },
+              {
+                "id": "D",
+                "text": "4.7 kΩ ± 1%"
+              }
+            ],
+            "correct": "A",
+            "solution": "Amarillo = 4, Violeta = 7, Rojo = x100 (10²), Dorado = ±5%. Valor = 47 x 100 = 4700 Ω = 4.7 kΩ con tolerancia de ±5%. Rango = 4700 ± 235 Ω = [4465 Ω - 4935 Ω].",
+            "explanation": "El rojo como multiplicador agrega dos ceros o multiplica por 100."
+          }
+        ]
+      }
+    ]
+  }
+]

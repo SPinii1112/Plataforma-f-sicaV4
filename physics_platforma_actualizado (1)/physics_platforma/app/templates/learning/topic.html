@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- Migajas de Pan y Navegacion -->
+    <div class="flex items-center justify-between">
+        <nav class="flex text-xs font-semibold text-slate-500 space-x-2">
+            <a href="/dashboard" class="hover:text-physics-600">Mi Panel</a>
+            <span>/</span>
+            <span>{{ module.name }}</span>
+            <span>/</span>
+            <span class="text-slate-800">{{ topic.name }}</span>
+        </nav>
+        <a href="/dashboard" class="text-xs font-bold text-physics-600 hover:underline">
+            &larr; Volver al Panel
+        </a>
+    </div>
+
+    <!-- Titulo del Tema -->
+    <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div>
+                <span class="text-xs font-extrabold text-physics-600 uppercase tracking-wider">{{ module.name }}</span>
+                <h1 class="text-2xl font-black text-slate-800 mt-1">{{ topic.name }}</h1>
+                <p class="text-sm text-slate-600 mt-1">{{ topic.summary }}</p>
+            </div>
+            <div class="flex items-center space-x-2 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200">
+                <span class="text-xs font-bold text-slate-600">Completado:</span>
+                <span class="text-xs font-extrabold text-physics-600">{{ progress.completion_percent|int if progress else 0 }}%</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido Teorico -->
+    <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm prose max-w-none text-slate-700">
+        <h2 class="text-lg font-black text-slate-800 border-b border-slate-100 pb-2 mb-4">Desarrollo Teorico y Conceptual</h2>
+
+        {% if topic.theory_content %}
+        <div class="space-y-4 text-sm leading-relaxed">
+            {{ topic.theory_content | safe }}
+        </div>
+        {% else %}
+        <p class="text-sm text-slate-600">{{ topic.summary }}</p>
+        {% endif %}
+    </div>
+
+    <!-- Seccion de Ejercicios Practicos -->
+    <div>
+        <div class="flex items-center justify-between mb-4">
+            <h2 class="text-xl font-black text-slate-800">Ejercicios de Aplicacion</h2>
+            <span class="text-xs text-slate-500">Resuelve y recibe correccion y explicacion inmediata</span>
+        </div>
+
+        <div class="space-y-5">
+            {% for item in exercises_data %}
+            {% set ex = item.exercise %}
+            {% set last_att = item.last_attempt %}
+            <div id="exercise-{{ ex.id }}" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <!-- Dificultad y Concepto -->
+                <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center space-x-2">
+                        <span class="text-xs font-bold px-2.5 py-0.5 rounded-full
+                            {% if ex.difficulty == 'basic' %} bg-emerald-100 text-emerald-800
+                            {% elif ex.difficulty == 'intermediate' %} bg-amber-100 text-amber-800
+                            {% else %} bg-rose-100 text-rose-800 {% endif %}">
+                            Dificultad: {{ ex.difficulty|capitalize }}
+                        </span>
+                        {% for ec in ex.concepts %}
+                        <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">
+                            {{ ec.concept.name }}
+                        </span>
+                        {% endfor %}
+                    </div>
+
+                    {% if last_att and last_att.is_correct %}
+                    <span class="text-xs font-bold text-emerald-600 flex items-center gap-1">
+                        &check; Ya resuelto con exito
+                    </span>
+                    {% endif %}
+                </div>
+
+                <!-- Enunciado -->
+                <p class="text-sm font-semibold text-slate-800 leading-relaxed mb-4">
+                    {{ ex.statement }}
+                </p>
+
+                <!-- Formulario de Respuesta con HTMX -->
+                <div id="feedback-box-{{ ex.id }}">
+                    {% if last_att %}
+                    <div class="mb-4 p-4 rounded-xl text-xs {% if last_att.is_correct %} bg-emerald-50 border border-emerald-200 text-emerald-900 {% else %} bg-amber-50 border border-amber-200 text-amber-900 {% endif %}">
+                        <div class="font-bold mb-1">
+                            {% if last_att.is_correct %}&check; ¡Respuesta Correcta!{% else %}&times; Respuesta Anterior Incorrecta{% endif %}
+                        </div>
+                        <p>{{ last_att.feedback_message }}</p>
+                        {% if not last_att.is_correct and ex.solution_steps %}
+                        <div class="mt-2 pt-2 border-t border-amber-200/60">
+                            <strong>Procedimiento:</strong>
+                            <pre class="mt-1 font-mono text-[11px] whitespace-pre-wrap">{{ ex.solution_steps }}</pre>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+
+                    <form hx-post="/ejercicio/{{ ex.id }}/submit"
+                          hx-target="#feedback-box-{{ ex.id }}"
+                          hx-swap="innerHTML"
+                          class="space-y-3">
+
+                        {% if ex.exercise_type == 'multiple_choice' and ex.options %}
+                        <div class="space-y-2">
+                            {% for opt in ex.options %}
+                            <label class="flex items-center p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition text-xs font-medium text-slate-700">
+                                <input type="radio" name="user_answer" value="{{ opt.id }}" required class="mr-3 text-physics-600 focus:ring-physics-500">
+                                <span><strong>{{ opt.id }})</strong> {{ opt.text }}</span>
+                            </label>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">Tu resultado numerico:</label>
+                            <input type="text" name="user_answer" required placeholder="Ingresa el valor calculado"
+                                class="w-full sm:w-64 px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs focus:ring-2 focus:ring-physics-500 focus:bg-white outline-none">
+                        </div>
+                        {% endif %}
+
+                        <div class="pt-2">
+                            <button type="submit" class="px-5 py-2 bg-physics-600 hover:bg-physics-700 text-white font-bold text-xs rounded-xl shadow transition">
+                                Enviar Respuesta para Evaluacion
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
